@@ -14,7 +14,7 @@ args = parser.parse_args()
 # Calculate hashes of all png files in the test/directory
 def sha1(path):
     with open(path, "rb") as f:
-        return hashlib.sha1(f.read()).hexdigest()
+        return hashlib.sha256(f.read()).hexdigest()
 
 
 filehashes = {sha1(p): p for p in Path(".").glob("**/*-snapshots/*-linux.png")}

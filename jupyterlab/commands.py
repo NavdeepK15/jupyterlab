@@ -2117,12 +2117,14 @@ def _tarsum(input_file):
     """
     tar = tarfile.open(input_file, "r")
     chunk_size = 100 * 1024
-    h = hashlib.new("sha1")
+    h = hashlib.new("sha256")
 
     for member in tar:
         if not member.isfile():
             continue
-        f = tar.extractfile(member)
+        # f = tar.extractfile(member)
+        with contextlib.closing(tarfile.open(member, 'r:gz')) as f:
+            f.extractall(path='.')
         data = f.read(chunk_size)
         while data:
             h.update(data)
