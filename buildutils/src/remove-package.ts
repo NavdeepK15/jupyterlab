@@ -25,7 +25,7 @@ if (process.argv.length < 3) {
 // Get the package name or path.
 const target = process.argv[2];
 const basePath = path.resolve('.');
-
+const cmd = `jlpm remove:dependency ${target}`
 // Get the package.json of the extension.
 const packagePath = path.join(basePath, 'packages', target, 'package.json');
 if (!fs.existsSync(packagePath)) {
@@ -39,4 +39,4 @@ fs.removeSync(path.dirname(packagePath));
 
 // Remove any dependencies on the package (will also run `jlpm integrity`)
 
-utils.run(`jlpm remove:dependency ${target}`, {stdio: 'pipe',encoding: 'utf8'}, true);
+utils.run(cmd);
