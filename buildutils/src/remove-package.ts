@@ -38,4 +38,4 @@ if (!fs.existsSync(packagePath)) {
 fs.removeSync(path.dirname(packagePath));
 
 // Remove any dependencies on the package (will also run `jlpm integrity`)
-utils.run('jlpm', [`remove:dependency ${target}`]);
+utils.run(['jlpm', `remove:dependency ${target}`].join(" "));
