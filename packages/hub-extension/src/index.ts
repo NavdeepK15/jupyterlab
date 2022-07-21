@@ -66,7 +66,7 @@ function activateHubExtension(
     label: trans.__('Restart Server'),
     caption: trans.__('Request that the Hub restart this server'),
     execute: () => {
-      window.open(restartUrl, '_blank');
+      window.open(restartUrl, '_self');
     }
   });
 
@@ -74,7 +74,7 @@ function activateHubExtension(
     label: trans.__('Hub Control Panel'),
     caption: trans.__('Open the Hub control panel in a new browser tab'),
     execute: () => {
-      window.open(hubHost + URLExt.join(hubPrefix, 'home'), '_blank');
+      window.open(hubHost + URLExt.join(hubPrefix, 'home'), '_self');
     }
   });
 

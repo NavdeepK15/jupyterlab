@@ -117,7 +117,7 @@ const about: JupyterFrontEndPlugin<void> = {
           <span className="jp-About-externalLinks">
             <a
               href={contributorsURL}
-              target="_blank"
+              target="_self"
               rel="noopener noreferrer"
               className="jp-Button-flat"
             >
@@ -125,7 +125,7 @@ const about: JupyterFrontEndPlugin<void> = {
             </a>
             <a
               href={jupyterURL}
-              target="_blank"
+              target="_self"
               rel="noopener noreferrer"
               className="jp-Button-flat"
             >

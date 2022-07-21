@@ -84,7 +84,7 @@ describe('rendermime/factories', () => {
         ],
         [
           '\x1b[48;2;185;0;129mwww.example.\x1b[0m\x1b[48;2;113;0;119mcom\x1b[0m',
-          '<pre><a href="https://www.example.com" rel="noopener" target="_blank"><span style="background-color:rgb(185,0,129)">www.example.</span><span style="background-color:rgb(113,0,119)">com</span></a></pre>'
+          '<pre><a href="https://www.example.com" rel="noopener" target="_self"><span style="background-color:rgb(185,0,129)">www.example.</span><span style="background-color:rgb(113,0,119)">com</span></a></pre>'
         ]
       ])(
         'should output the correct HTML with ansi colors',
@@ -159,7 +159,7 @@ describe('rendermime/factories', () => {
               : urlEncoded;
             await w.renderModel(model);
             expect(w.node.innerHTML).toBe(
-              `<pre>Text with the URL ${beforeEncoded}<a href="${prefixedUrl}" rel="noopener" target="_blank">${urlEncoded}</a>${afterEncoded} inside.</pre>`
+              `<pre>Text with the URL ${beforeEncoded}<a href="${prefixedUrl}" rel="noopener" target="_self">${urlEncoded}</a>${afterEncoded} inside.</pre>`
             );
           })
         );
@@ -169,7 +169,7 @@ describe('rendermime/factories', () => {
     it('should autolink multiple URLs', async () => {
       const source = 'www.example.com\nwww.python.org';
       const expected =
-        '<pre><a href="https://www.example.com" rel="noopener" target="_blank">www.example.com</a>\n<a href="https://www.python.org" rel="noopener" target="_blank">www.python.org</a></pre>';
+        '<pre><a href="https://www.example.com" rel="noopener" target="_self">www.example.com</a>\n<a href="https://www.python.org" rel="noopener" target="_self">www.python.org</a></pre>';
       const f = textRendererFactory;
       const mimeType = 'text/plain';
       const model = createModel(mimeType, source);

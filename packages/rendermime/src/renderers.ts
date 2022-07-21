@@ -519,7 +519,7 @@ function autolink(content: string): Array<HTMLAnchorElement | Text> {
     url = url.slice(0, len);
     anchor.href = url.startsWith('www.') ? 'https://' + url : url;
     anchor.rel = 'noopener';
-    anchor.target = '_blank';
+    anchor.target = '_self';
     anchor.appendChild(document.createTextNode(url.slice(0, len)));
     nodes.push(anchor);
     lastIndex = match.index + len;
@@ -776,7 +776,7 @@ namespace Private {
           : URLExt.isLocal(path);
       // set target attribute if not already present
       if (!el.target) {
-        el.target = isLocal ? '_self' : '_blank';
+        el.target = isLocal ? '_self' : '_self';
       }
       // set rel as 'noopener' for non-local anchors
       if (!isLocal) {

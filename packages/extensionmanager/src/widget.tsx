@@ -234,7 +234,7 @@ function ListEntry(props: ListEntry.IProperties): React.ReactElement<any> {
         <div className="jp-extensionmanager-entry-title">
           <div className="jp-extensionmanager-entry-name">
             {entry.url ? (
-              <a href={entry.url} target="_blank" rel="noopener noreferrer">
+              <a href={entry.url} target="_self" rel="noopener noreferrer">
                 {entry.name}
               </a>
             ) : (
@@ -397,7 +397,7 @@ function getPrebuiltUninstallInstruction(
       <p>
         <a
           href="https://jupyterlab.readthedocs.io/en/3.4.x/user/extensions.html"
-          target="_blank"
+          target="_self"
           rel="noopener noreferrer"
         >
           https://jupyterlab.readthedocs.io/en/3.4.x/user/extensions.html
@@ -726,7 +726,7 @@ administrator to verify the listings configuration.`)}
           <div>
             <a
               href="https://jupyterlab.readthedocs.io/en/3.4.x/user/extensions.html"
-              target="_blank"
+              target="_self"
               rel="noopener noreferrer"
             >
               {this._trans.__('Read more in the JupyterLab documentation.')}

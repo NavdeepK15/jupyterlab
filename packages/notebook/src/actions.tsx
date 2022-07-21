@@ -1873,7 +1873,7 @@ export namespace NotebookActions {
         {trans.__('For more information, see')}{' '}
         <a
           href="https://jupyter-server.readthedocs.io/en/stable/operators/security.html"
-          target="_blank"
+          target="_self"
           rel="noopener noreferrer"
         >
           {trans.__('the Jupyter security documentation')}

@@ -520,12 +520,12 @@ export const exportPlugin: JupyterFrontEndPlugin<void> = {
 
         if (context.model.dirty && !context.model.readOnly) {
           return context.save().then(() => {
-            window.open(url, '_blank', 'noopener');
+            window.open(url, '_self', 'noopener');
           });
         }
 
         return new Promise<void>(resolve => {
-          window.open(url, '_blank', 'noopener');
+          window.open(url, '_self', 'noopener');
           resolve(undefined);
         });
       },
