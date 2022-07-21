@@ -38,4 +38,4 @@ fs.removeSync(path.dirname(packagePath));
 
 // Remove any dependencies on the package (will also run `jlpm integrity`)
 
-utils.run('jlpm', {input: [`remove:dependency ${target}`]});
+utils.run('jlpm', {input: `remove:dependency ${target}`});
