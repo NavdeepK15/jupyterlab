@@ -39,9 +39,9 @@ fs.removeSync(path.dirname(packagePath));
 
 // Remove any dependencies on the package (will also run `jlpm integrity`)
 
-// pass execSyncOptions type object
+// pass execSyncOptions to avoid the "Permission denied" error
 const execSyncOptions = {
   stdio: 'inherit'
 };
 
-utils.run(['jlpm', 'remove', target].join(' '), execSyncOptions);
+utils.run('jlpm', child_process.execSync(`remove:dependency ${target}`));
